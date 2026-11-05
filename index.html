@@ -1,112 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Active Dad's NPO</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<!-- Fix 1 & 2: Added background-attachment fixed & removed solid bg-gray-50 from body -->
-<body class="text-gray-800 font-sans leading-relaxed min-h-screen" 
+<body class="text-gray-800 font-sans leading-relaxed min-h-screen flex flex-col" 
       style="background-image: url('file:///C:/Users/kaunda13/Downloads/dad%20and%20children%20playing.jpg'); background-attachment: fixed; background-size: cover; background-position: center;">
 
   <!-- Header / Navigation -->
   <header class="bg-blue-900/95 text-white shadow-md sticky top-0 z-50 backdrop-blur-sm">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold tracking-wide">Active Dad's <span class="text-xs bg-blue-700 px-2 py-1 rounded">NPO</span></h1>
-      <nav class="hidden md:flex space-x-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">Active Dad's <span class="text-xs bg-blue-700 px-2 py-1 rounded">NPO</span></h1>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6">
         <a href="#about" class="hover:text-blue-200 transition">About Us</a>
         <a href="Gallery.html" class="hover:text-blue-200 transition">Gallery</a>
         <a href="#objectives" class="hover:text-blue-200 transition">Objectives</a>
         <a href="#governance" class="hover:text-blue-200 transition">Governance</a>
         <a href="#join" class="bg-yellow-500 text-blue-900 px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition">Get Involved</a>
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Toggle Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-950/95 border-t border-blue-800/50 px-4 pt-2 pb-4 space-y-3">
+      <a href="#about" class="block text-gray-200 hover:text-white py-1">About Us</a>
+      <a href="Gallery.html" class="block text-gray-200 hover:text-white py-1">Gallery</a>
+      <a href="#objectives" class="block text-gray-200 hover:text-white py-1">Objectives</a>
+      <a href="#governance" class="block text-gray-200 hover:text-white py-1">Governance</a>
+      <a href="#join" class="inline-block w-full text-center bg-yellow-500 text-blue-900 px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition mt-2">Get Involved</a>
     </div>
   </header>
 
-  <!-- Hero Section (made slightly semi-transparent with /90) -->
-  <section class="bg-gradient-to-r from-blue-900/90 to-indigo-800/90 text-white py-20 px-4 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Building a Healthy & Sustainable Environment</h2>
-      <p class="text-xl text-blue-100 mb-8">For now and the future generation.</p>
-      <a href="#join" class="inline-block bg-yellow-500 text-blue-900 text-lg font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-yellow-400 transition">Join Our Mission</a>
-    </div>
-  </section>
-
-  <!-- Vision Statement -->
-  <section class="py-12 bg-blue-50/80 border-b border-blue-100/50 max-w-4xl mx-auto my-8 rounded-lg backdrop-blur-sm">
-    <div class="text-center px-4">
-      <h3 class="text-sm font-bold uppercase tracking-widest text-blue-600 mb-2">Our Vision</h3>
-      <p class="text-2xl md:text-3xl font-serif text-gray-700 italic">
-        "Having a better community for all who lives in it."
-      </p>
-    </div>
-  </section>
-
-  <!-- Objectives / Programs -->
-  <section id="objectives" class="py-16 max-w-6xl mx-auto px-4">
-    <h3 class="text-3xl font-bold text-center mb-12 text-blue-900 bg-white/80 py-2 rounded-lg max-w-md mx-auto">Our Key Objectives</h3>
-    
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Used bg-white/90 for 90% opacity so background image peeks through -->
-      <div class="bg-white/90 p-6 rounded-lg shadow border-l-4 border-blue-600 backdrop-blur-sm">
-        <h4 class="text-xl font-bold mb-2 text-blue-800">1. Educational Support</h4>
-        <p class="text-gray-600">Providing dedicated support and guidance to empower children in their education.</p>
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-900/90 to-indigo-800/90 text-white py-12 sm:py-20 px-4 sm:px-6 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Building a Healthy & Sustainable Environment</h2>
+        <p class="text-base sm:text-lg md:text-xl text-blue-100 mb-8">For now and the future generation.</p>
+        <a href="#join" class="inline-block bg-yellow-500 text-blue-900 text-base sm:text-lg font-bold px-6 sm:px-8 py-3 rounded-lg shadow-lg hover:bg-yellow-400 transition">Join Our Mission</a>
       </div>
+    </section>
 
-      <div class="bg-white/90 p-6 rounded-lg shadow border-l-4 border-blue-600 backdrop-blur-sm">
-        <h4 class="text-xl font-bold mb-2 text-blue-800">2. Community Development</h4>
-        <p class="text-gray-600 mb-4">Promoting vibrant area development across multiple focal areas:</p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1">
-          <li><strong>Sports:</strong> Building health, teamwork, and local connection.</li>
-          <li><strong>Arts & Culture:</strong> Celebrating expression and unity.</li>
-          <li><strong>Environmental Education:</strong> Teaching sustainability for future generations.</li>
-          <li><strong>Educational Tours & Exploration:</strong> Expanding youth horizons through trips and field learning.</li>
-        </ul>
+    <!-- Vision Statement -->
+    <section id="about" class="py-8 sm:py-12 bg-blue-50/80 border-b border-blue-100/50 max-w-4xl mx-4 sm:mx-auto my-6 sm:my-8 rounded-lg backdrop-blur-sm">
+      <div class="text-center px-4">
+        <h3 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-600 mb-2">Our Vision</h3>
+        <p class="text-xl sm:text-2xl md:text-3xl font-serif text-gray-700 italic">
+          "Having a better community for all who lives in it."
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Governance & Ethics -->
-  <section id="governance" class="py-16 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-2xl font-bold mb-6 text-center text-blue-900 bg-white/80 py-2 rounded-lg max-w-md mx-auto">Income, Property & Governance</h3>
-      <div class="bg-white/90 p-6 rounded-lg shadow space-y-4 text-gray-700 backdrop-blur-sm">
-        <p><strong>Record Keeping:</strong> The organization keeps strict records of everything it owns.</p>
-        <p><strong>NPO Financial Ethics:</strong> Active Dad's does not transfer money or property to members or office bearers, except as reasonable payment for work actually performed for the organization.</p>
-        <p><strong>Asset Rights:</strong> Members and office bearers hold no individual rights to the property or assets of the organization.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Join / Contact Form -->
-  <section id="join" class="py-16 max-w-3xl mx-auto px-4">
-    <div class="bg-white/90 p-8 rounded-lg shadow border border-gray-200 backdrop-blur-sm">
-      <h3 class="text-3xl font-bold text-center mb-4 text-blue-900">Become a Member</h3>
-      <p class="text-center text-gray-600 mb-8">Membership is open to everyone who shares our vision and mission.</p>
+    <!-- Objectives / Programs -->
+    <section id="objectives" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6">
+      <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-blue-900 bg-white/80 py-2 px-4 rounded-lg max-w-md mx-auto shadow-sm">Our Key Objectives</h3>
       
-      <form class="space-y-4">
-        <div>
-          <label class="block font-semibold mb-1 text-gray-700">Full Name</label>
-          <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600 bg-white" placeholder="Your Name" required>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div class="bg-white/90 p-6 rounded-lg shadow border-l-4 border-blue-600 backdrop-blur-sm">
+          <h4 class="text-lg sm:text-xl font-bold mb-2 text-blue-800">1. Educational Support</h4>
+          <p class="text-sm sm:text-base text-gray-600">Providing dedicated support and guidance to empower children in their education.</p>
         </div>
-        <div>
-          <label class="block font-semibold mb-1 text-gray-700">Email Address</label>
-          <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600 bg-white" placeholder="yourname@example.com" required>
+
+        <div class="bg-white/90 p-6 rounded-lg shadow border-l-4 border-blue-600 backdrop-blur-sm">
+          <h4 class="text-lg sm:text-xl font-bold mb-2 text-blue-800">2. Community Development</h4>
+          <p class="text-sm sm:text-base text-gray-600 mb-4">Promoting vibrant area development across multiple focal areas:</p>
+          <ul class="list-disc list-inside text-sm sm:text-base text-gray-600 space-y-1">
+            <li><strong>Sports:</strong> Building health, teamwork, and local connection.</li>
+            <li><strong>Arts & Culture:</strong> Celebrating expression and unity.</li>
+            <li><strong>Environmental Education:</strong> Teaching sustainability for future generations.</li>
+            <li><strong>Educational Tours & Exploration:</strong> Expanding youth horizons through trips and field learning.</li>
+          </ul>
         </div>
-        <div>
-          <label class="block font-semibold mb-1 text-gray-700">Message / How would you like to contribute?</label>
-          <textarea class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600 bg-white" rows="4" placeholder="Tell us about yourself..."></textarea>
+      </div>
+    </section>
+
+    <!-- Governance & Ethics -->
+    <section id="governance" class="py-12 sm:py-16 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-blue-900 bg-white/80 py-2 px-4 rounded-lg max-w-md mx-auto shadow-sm">Income, Property & Governance</h3>
+        <div class="bg-white/90 p-6 rounded-lg shadow space-y-4 text-sm sm:text-base text-gray-700 backdrop-blur-sm">
+          <p><strong>Record Keeping:</strong> The organization keeps strict records of everything it owns.</p>
+          <p><strong>NPO Financial Ethics:</strong> Active Dad's does not transfer money or property to members or office bearers, except as reasonable payment for work actually performed for the organization.</p>
+          <p><strong>Asset Rights:</strong> Members and office bearers hold no individual rights to the property or assets of the organization.</p>
         </div>
-        <button type="submit" class="w-full bg-blue-900 text-white font-bold py-3 rounded hover:bg-blue-800 transition">Submit Application</button>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- Join / Contact Form -->
+    <section id="join" class="py-12 sm:py-16 max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-white/90 p-6 sm:p-8 rounded-lg shadow border border-gray-200 backdrop-blur-sm">
+        <h3 class="text-2xl sm:text-3xl font-bold text-center mb-2 sm:mb-4 text-blue-900">Become a Member</h3>
+        <p class="text-center text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Membership is open to everyone who shares our vision and mission.</p>
+        
+        <form class="space-y-4">
+          <div>
+            <label class="block font-semibold mb-1 text-sm sm:text-base text-gray-700">Full Name</label>
+            <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-sm sm:text-base focus:outline-none focus:border-blue-600 bg-white" placeholder="Your Name" required>
+          </div>
+          <div>
+            <label class="block font-semibold mb-1 text-sm sm:text-base text-gray-700">Email Address</label>
+            <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 text-sm sm:text-base focus:outline-none focus:border-blue-600 bg-white" placeholder="yourname@example.com" required>
+          </div>
+          <div>
+            <label class="block font-semibold mb-1 text-sm sm:text-base text-gray-700">Message / How would you like to contribute?</label>
+            <textarea class="w-full border border-gray-300 rounded px-4 py-2 text-sm sm:text-base focus:outline-none focus:border-blue-600 bg-white" rows="4" placeholder="Tell us about yourself..."></textarea>
+          </div>
+          <button type="submit" class="w-full bg-blue-900 text-white font-bold py-3 rounded hover:bg-blue-800 transition text-sm sm:text-base">Submit Application</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-blue-950/95 text-white py-6 text-center text-sm">
+  <footer class="bg-blue-950/95 text-white py-6 text-center text-xs sm:text-sm mt-auto">
     <p>&copy; Active Dad's NPO. All rights reserved.</p>
   </footer>
 
+  <!-- Mobile Navigation Toggle Script -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
