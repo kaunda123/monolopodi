@@ -16,10 +16,12 @@
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="hover:text-blue-200 transition">Home</a>
         <a href="#about" class="hover:text-blue-200 transition">About Us</a>
         <a href="Gallery.html" class="hover:text-blue-200 transition">Gallery</a>
         <a href="#objectives" class="hover:text-blue-200 transition">Objectives</a>
         <a href="#governance" class="hover:text-blue-200 transition">Governance</a>
+        <a href="#about" class="hover:text-blue-200 transition">Staff</a>
         <a href="#join" class="bg-yellow-500 text-blue-900 px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition">Get Involved</a>
       </nav>
 
@@ -33,10 +35,12 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-blue-950/95 border-t border-blue-800/50 px-4 pt-2 pb-4 space-y-3">
+        <a href="index.html" class="hover:text-blue-200 transition">Home</a>
       <a href="#about" class="block text-gray-200 hover:text-white py-1">About Us</a>
       <a href="Gallery.html" class="block text-gray-200 hover:text-white py-1">Gallery</a>
       <a href="#objectives" class="block text-gray-200 hover:text-white py-1">Objectives</a>
       <a href="#governance" class="block text-gray-200 hover:text-white py-1">Governance</a>
+      <a href="#about" class="hover:text-blue-200 transition">Staff</a>
       <a href="#join" class="inline-block w-full text-center bg-yellow-500 text-blue-900 px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition mt-2">Get Involved</a>
     </div>
   </header>
@@ -84,6 +88,76 @@
       </div>
     </section>
 
+    <!-- Picture Cycle / Slideshow - Clickable -->
+<section id="gallery-cycle" class="py-8 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="bg-white/90 rounded-lg shadow overflow-hidden backdrop-blur-sm">
+      <div class="relative w-full h-[300px] sm:h-[420px] overflow-hidden">
+        
+        <!-- Picture 1 - Clickable -->
+        <a href="Gallery.html" class="cycle-slide absolute inset-0 block">
+          <img src="image7.jpeg" class="w-full h-full object-cover" alt="Active Dad's activity 1">
+        </a>
+        <!-- Picture 2 - Clickable -->
+        <a href="Gallery.html" class="cycle-slide absolute inset-0 block hidden">
+          <img src="image15.jpeg" class="w-full h-full object-cover" alt="Active Dad's activity 2">
+        </a>
+        <!-- Picture 3 - Clickable -->
+        <a href="Gallery.html" class="cycle-slide absolute inset-0 block hidden">
+          <img src="image13.jpeg" class="w-full h-full object-cover" alt="Active Dad's activity 3">
+        </a>
+        <!-- Picture 4 - Clickable -->
+        <a href="Gallery.html" class="cycle-slide absolute inset-0 block hidden">
+          <img src="image14.jpeg" class="w-full h-full object-cover" alt="Active Dad's activity 4">
+        </a>
+        <!-- Picture 5 - Clickable -->
+        <a href="Gallery.html" class="cycle-slide absolute inset-0 block hidden">
+          <img src="image11.jpeg" class="w-full h-full object-cover" alt="Active Dad's activity 5">
+        </a>
+  
+        <!-- Caption - Also Clickable -->
+        <a href="Gallery.html" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-4 block z-10">
+          <p class="font-bold text-sm sm:text-base">Active Dad's in Action</p>
+          <p class="text-xs sm:text-sm text-gray-200">Sports, Culture, Education & Community - Click to view Gallery →</p>
+        </a>
+  
+        <!-- Prev / Next - on top so they don't trigger the link -->
+        <button onclick="changeSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full text-xl z-20">‹</button>
+        <button onclick="changeSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full text-xl z-20">›</button>
+      </div>
+  
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 py-3 bg-white">
+        <button onclick="goToSlide(0)" class="cycle-dot w-3 h-3 rounded-full bg-blue-900"></button>
+        <button onclick="goToSlide(1)" class="cycle-dot w-3 h-3 rounded-full bg-gray-300"></button>
+        <button onclick="goToSlide(2)" class="cycle-dot w-3 h-3 rounded-full bg-gray-300"></button>
+        <button onclick="goToSlide(3)" class="cycle-dot w-3 h-3 rounded-full bg-gray-300"></button>
+        <button onclick="goToSlide(4)" class="cycle-dot w-3 h-3 rounded-full bg-gray-300"></button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    //const menuBtn = // Picture Cycle - max 5 pictures, clickable to Gallery
+let currentSlide = 0;
+const slides = document.querySelectorAll('.cycle-slide');
+const dots = document.querySelectorAll('.cycle-dot');
+
+function showSlide(n) {
+  currentSlide = (n + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('hidden', i !== currentSlide);
+  });
+  dots.forEach((dot, i) => {
+    dot.className = 'cycle-dot w-3 h-3 rounded-full ' + (i === currentSlide ? 'bg-blue-900' : 'bg-gray-300');
+  });
+}
+function changeSlide(step) { showSlide(currentSlide + step); }
+function goToSlide(n) { showSlide(n); }
+
+// Auto-cycle every 4 seconds
+setInterval(() => { showSlide(currentSlide + 1); }, 4000);
+  </script>
+
     <!-- Governance & Ethics -->
     <section id="governance" class="py-12 sm:py-16 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto">
@@ -102,7 +176,7 @@
         <div >
           <h3 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-blue-900 bg-white/80 py-2 px-4 rounded-lg max-w-md mx-auto shadow-sm">About US</h3>
           <div class="bg-white/90 p-6 rounded-lg shadow space-y-4 text-sm sm:text-base text-gray-700 backdrop-blur-sm">
-            <p>Active Dad's is a Non-Profit Organisation (NPO) committed to building a healthy and sustainable environment for now and the future generation. Our vision is simple: having a better community for all who lives in it. We work to achieve this through two main objectives. First, we provide educational support to children, giving them the guidance and encouragement they need to succeed. Second, we promote community development in our area through sports, arts and culture, environmental education, and educational tours and exploration. As an NPO, we are guided by transparency and accountability. We keep strict records of everything we own, we do not give money or property to members or office bearers except as reasonable payment for work actually done for the organisation, and no member holds any personal right to the property or assets of the organisation. Membership is open to all who share the same vision and mission as the organisation, and we welcome everyone who wants to help build a stronger, healthier community.</p>
+            <p>Active Dad's is a Non-Profit Organisation (NPO) committed to building a healthy and sustainable environment for now and the future generation. Our vision is simple: having a better community for all who lives in it. We work to achieve this through two main objectives. First, we provide educational support to children, giving them the guidance and encouragement they need to succeed. Second, we promote community development in our area through sports, arts and culture, environmental education, and educational tours and exploration. As an NPO, we are guided by transparency and accountability. We keep strict records of everything we own, we do not give money or property to members or office bearers except as reasonable payment for work actually done for the organisation, and no member holds any personal right to the property or assets of the organisation. Membership is open to all who share the same vision and mission as the organisation, and we welcome everyone who wants to help build a stronger, healthier community.Want a shorter version too for the homepage, and this longer one for the full About Us page?</p>
           </div>
         </div>
       </section>
@@ -133,8 +207,68 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-blue-950/95 text-white py-6 text-center text-xs sm:text-sm mt-auto">
-    <p>&copy; Active Dad's NPO. All rights reserved.</p>
+  <!-- Footer -->
+<footer class="bg-blue-950/95 text-white mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+  
+      <!-- 1. About + Social -->
+      <div>
+        <h4 class="text-lg font-bold mb-2">Active Dad's <span class="text-xs bg-blue-700 px-2 py-1 rounded">NPO</span></h4>
+        <p class="text-sm text-blue-200 mb-4">Building a healthy and sustainable environment for now and the future generation.</p>
+        
+        <!-- Social Icons -->
+        <div class="flex justify-center md:justify-start space-x-4">
+          <!-- Facebook -->
+          <a href="https://facebook.com/ActiveDadsNPO" target="_blank" aria-label="Facebook" class="bg-blue-800 hover:bg-blue-700 p-2.5 rounded-full transition">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.45 2.9h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/ActiveDadsNPO" target="_blank" aria-label="Instagram" class="bg-pink-600 hover:bg-pink-500 p-2.5 rounded-full transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <!-- X / Twitter -->
+          <a href="https://x.com/ActiveDadsNPO" target="_blank" aria-label="Twitter / X" class="bg-black hover:bg-gray-800 p-2.5 rounded-full transition border border-gray-700">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg>
+          </a>
+        </div>
+      </div>
+  
+      <!-- 2. Contact -->
+      <div>
+        <h4 class="text-lg font-bold mb-3">Contact Us</h4>
+        <ul class="space-y-3 text-sm text-blue-100">
+          <li class="flex justify-center md:justify-start gap-2">
+            <span>📧</span>
+            <a href="mailto:ActiveDads@gmail.com" class="hover:text-yellow-400">ActiveDad's@gmail.com</a>
+          </li>
+          <li class="flex justify-center md:justify-start gap-2">
+            <span>📞</span>
+            <a href="tel:+27123456789" class="hover:text-yellow-400">073 951 8985</a>
+          </li>
+          <li class="flex justify-center md:justify-start gap-2">
+            <span>📍</span>
+            <span>Ga-Rankuwa, Gauteng, South Africa</span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- 3. Quick Links -->
+      <div>
+        <h4 class="text-lg font-bold mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-sm text-blue-100">
+            <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+          <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
+          <li><a href="Gallery.html" class="hover:text-yellow-400">Gallery</a></li>
+          <li><a href="#objectives" class="hover:text-yellow-400">Objectives</a></li>
+          <li><a href="#about" class="hover:text-yellow-400">Staff</a></li>
+          <li><a href="#join" class="hover:text-yellow-400">Get Involved</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="border-t border-blue-800/50 py-4 text-center text-xs sm:text-sm text-blue-200">
+      <p>&copy; 2026 Active Dad's NPO. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- Mobile Navigation Toggle Script -->
